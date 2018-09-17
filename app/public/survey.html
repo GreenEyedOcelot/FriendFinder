@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Bootstrap Example</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link rel="stylesheet" href="../assets/styles.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+   <div id="myModal" class="modal">
+      <div class="modal-content">
+         <span class="close">&times;</span>
+         <p>Your closest friend match is <span id="closestMatch"></span></p>
+         <img src="" id="friendImage">
+      </div>
+   </div>
+   <div class="container">
+      <h2>Compatibility Quiz</h2>
+      <p>Please answer all questions and then click "Submit Answers".</p>
+      <form>
+         <div class="form-group">
+            <label for="username">Name (required)</label>
+            <input type="text" class="form-control" id="username" placeholder="John Smith">
+            <label for="userphoto">Photo (required)</label>
+            <input type="text" class="form-control" id="userphoto" placeholder="https://randomuser.me/api/portraits/lego/7.jpg">
+            <br><br>
+            <label for="q1">1. I prefer going to a party more than spending time at the library.</label>
+            <select class="form-control" id="q1">
+               <option value="0" selected> Select the best option... </option>
+               <option value="1">1 (Strongly Agree)</option>
+               <option value="2">2 (Somewhat Agree)</option>
+               <option value="3">3 (Neutral)</option>
+               <option value="4">4 (Somewhat Disagree)</option>
+               <option value="5">5 (Strongly Disagree</option>
+            </select><br>
+            <label for="q2">2. I make life decisions based more on facts than feelings.</label>
+            <select class="form-control" id="q2">
+               <option value="0" selected> Select the best option... </option>
+               <option value="1">1 (Strongly Agree)</option>
+               <option value="2">2 (Somewhat Agree)</option>
+               <option value="3">3 (Neutral)</option>
+               <option value="4">4 (Somewhat Disagree)</option>
+               <option value="5">5 (Strongly Disagree</option>
+            </select><br>
+            <label for="q3">3. I believe in horoscopes.</label>
+            <select class="form-control" id="q3">
+               <option value="0" selected> Select the best option... </option>
+               <option value="1">1 (Strongly Agree)</option>
+               <option value="2">2 (Somewhat Agree)</option>
+               <option value="3">3 (Neutral)</option>
+               <option value="4">4 (Somewhat Disagree)</option>
+               <option value="5">5 (Strongly Disagree</option>
+            </select><br>
+            <label for="q4">4. I prefer dramas over comedies.</label>
+            <select class="form-control" id="q4">
+               <option value="0" selected> Select the best option... </option>
+               <option value="1">1 (Strongly Agree)</option>
+               <option value="2">2 (Somewhat Agree)</option>
+               <option value="3">3 (Neutral)</option>
+               <option value="4">4 (Somewhat Disagree)</option>
+               <option value="5">5 (Strongly Disagree</option>
+            </select><br>
+            <label for="q5">5. In general, I enjoy watching tv or a film more than reading a book.</label>
+            <select class="form-control" id="q5">
+               <option value="0" selected> Select the best option... </option>
+               <option value="1">1 (Strongly Agree)</option>
+               <option value="2">2 (Somewhat Agree)</option>
+               <option value="3">3 (Neutral)</option>
+               <option value="4">4 (Somewhat Disagree)</option>
+               <option value="5">5 (Strongly Disagree</option>
+            </select><br>
+            <label for="q6">6. I prefer talking to one or two people at a time more than hanging out with a larger
+               group of people.</label>
+            <select class="form-control" id="q6">
+               <option value="0" selected> Select the best option... </option>
+               <option value="1">1 (Strongly Agree)</option>
+               <option value="2">2 (Somewhat Agree)</option>
+               <option value="3">3 (Neutral)</option>
+               <option value="4">4 (Somewhat Disagree)</option>
+               <option value="5">5 (Strongly Disagree</option>
+            </select><br>
+            <label for="q7">7. I would describe my political orientation as being more conservative than progressive.</label>
+            <select class="form-control" id="q7">
+               <option value="0" selected> Select the best option... </option>
+               <option value="1">1 (Strongly Agree)</option>
+               <option value="2">2 (Somewhat Agree)</option>
+               <option value="3">3 (Neutral)</option>
+               <option value="4">4 (Somewhat Disagree)</option>
+               <option value="5">5 (Strongly Disagree</option>
+            </select><br>
+            <label for="q8">8. I prefer a regular structure and schedule more than doing things spontaneously.</label>
+            <select class="form-control" id="q8">
+               <option value="0" selected> Select the best option... </option>
+               <option value="1">1 (Strongly Agree)</option>
+               <option value="2">2 (Somewhat Agree)</option>
+               <option value="3">3 (Neutral)</option>
+               <option value="4">4 (Somewhat Disagree)</option>
+               <option value="5">5 (Strongly Disagree</option>
+            </select><br>
+            <label for="q9">9. I prefer adventure over security.</label>
+            <select class="form-control" id="q9">
+               <option value="0" selected> Select the best option... </option>
+               <option value="1">1 (Strongly Agree)</option>
+               <option value="2">2 (Somewhat Agree)</option>
+               <option value="3">3 (Neutral)</option>
+               <option value="4">4 (Somewhat Disagree)</option>
+               <option value="5">5 (Strongly Disagree</option>
+            </select><br>
+            <label for="q10">10. I prefer cats more than dogs.</label>
+            <select class="form-control" id="q10">
+               <option value="0" selected> Select the best option... </option>
+               <option value="1">1 (Strongly Agree)</option>
+               <option value="2">2 (Somewhat Agree)</option>
+               <option value="3">3 (Neutral)</option>
+               <option value="4">4 (Somewhat Disagree)</option>
+               <option value="5">5 (Strongly Disagree</option>
+            </select><br>
+            <input class="btn btn-primary" type="submit" id="submitForm" value="Submit Answers">
+         </div>
+      </form>
+   </div>
+   <script>
+      $(document).ready(function () {
+         function formIsComplete() {
+            let isValid = $("#username").val() !== null && $("#userphoto").val() !== null;
+            if (isValid) {
+               for (let i = 1; i < 11; i++) {
+                  if ($("#q" + i).val() === "0") {
+                     isValid = false;
+                     break;
+                  }
+               }
+            }
+            return isValid;
+         }
+
+         function clearForm() {
+            $("username").val("");
+            $("userphoto").val("");
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].forEach((num) => $("#q" + num).val(""));
+         }
+
+         function submitData() {
+            event.preventDefault();
+            if (formIsComplete()) {
+               var thisFriend = {
+                  "name": $("#username").val().trim(),
+                  "photo": $("userphoto").val().trim(),
+                  "scores": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => parseInt($("#q" + num).val().trim()))
+               }
+               clearForm();
+               $.post(window.location.origin + "api/friends", thisFriend, function (data) {
+                  $("#closestMatch").text(data.name + ".");
+                  $("#friendImage").attr("src", data.photo);
+                  $("modal").css("display", "block");
+               })
+            } else {
+               alert(
+                  "Please complete the form before clicking Submit.\nThe name and photo cannot be blank, and each question must be answered."
+               );
+            }
+         }
+
+         $("#submitForm").on("click", submitData);
+
+      })
+   </script>
+</body>
+
+</html>
