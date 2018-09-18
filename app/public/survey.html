@@ -147,18 +147,23 @@
          }
 
          function submitData() {
+            console.log("in submit data")
             event.preventDefault();
             if (formIsComplete()) {
                var thisFriend = {
                   "name": $("#username").val().trim(),
-                  "photo": $("userphoto").val().trim(),
+                  "photo": $("#userphoto").val().trim(),
                   "scores": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => parseInt($("#q" + num).val().trim()))
                }
+               console.log("this friend is: ", thisFriend)
                clearForm();
-               $.post(window.location.origin + "api/friends", thisFriend, function (data) {
+               var postPath = window.location.origin + "/api/friends";
+               console.log("post path is ", postPath);
+               $.post(postPath, thisFriend, function (data) {
+                  console.log("inside post statement, the data is ", data);
                   $("#closestMatch").text(data.name + ".");
                   $("#friendImage").attr("src", data.photo);
-                  $("modal").css("display", "block");
+                  $(".modal").css("display", "block");
                })
             } else {
                alert(
